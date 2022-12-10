@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.selector.ByText;
-import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.CheckResult;
 
@@ -15,7 +14,6 @@ public class PracticeFormPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResult checkResult = new CheckResult();
 
-    @Step("Open registration form")
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
@@ -23,7 +21,6 @@ public class PracticeFormPage {
 
         return this;
     }
-    @Step("Filling registration form")
     public PracticeFormPage setFirstName(String value) {
         $("#firstName").setValue(value);
 
@@ -104,7 +101,6 @@ public class PracticeFormPage {
 
         return this;
     }
-@Step("Verify result")
     public PracticeFormPage checkTitle() {
         checkResult.visibleOfTitle();
 
