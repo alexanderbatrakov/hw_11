@@ -45,7 +45,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = TestBase.selenideUrl + "video/" + sessionId() + ".mp4";
+        String videoUrl = TestBase.selenideUrl + "/video/" + sessionId() + ".mp4";
 
         try {
             return new URL(videoUrl);
