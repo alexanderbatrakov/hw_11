@@ -11,6 +11,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.PracticeFormPage;
 import support.Attach;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static support.Attach.*;
+
 public class TestBase {
     public static String selenideUrl = System.getProperty("remoteURL", "https://user1:1234@selenoid.autotests.cloud/");
     PracticeFormPage practiceFormPage = new PracticeFormPage();
@@ -32,10 +35,11 @@ public class TestBase {
     }
 
     @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
+    public void tearDown() {
+        screenshotAs("Last screenshot");
+        pageSource();
+        browserConsoleLogs();
+        addVideo();
+        closeWebDriver();
     }
 }
