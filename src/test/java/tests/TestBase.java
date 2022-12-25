@@ -28,12 +28,9 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
-    @BeforeEach
-    void addListener() {
 
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
