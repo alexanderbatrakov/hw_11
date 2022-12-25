@@ -6,13 +6,13 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 allure {
-    version.set("2.19.0")
+    version.set("2.20.0")
     adapter {
         aspectjWeaver.set(true) //обработка аннотации @Step
 
         frameworks {
             junit5 {
-                adapterVersion.set("2.19.0")
+                adapterVersion.set("2.20.0")
             }
         }
     }
