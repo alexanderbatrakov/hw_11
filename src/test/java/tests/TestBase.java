@@ -21,7 +21,6 @@ public class TestBase {
         Configuration.holdBrowserOpen = false;
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.browser = browserName;
-        Configuration.browserVersion = System.getProperty("browserVer","100.0");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.remote = selenideUrl+"wd/hub";
 
