@@ -26,6 +26,11 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+}
+
 dependencies {
     testImplementation (
             "com.github.javafaker:javafaker:1.0.2",
