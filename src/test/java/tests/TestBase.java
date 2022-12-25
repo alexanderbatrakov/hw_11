@@ -11,14 +11,16 @@ import pages.PracticeFormPage;
 import support.Attach;
 
 public class TestBase {
+    public static String selenideUrl = System.getProperty("remoteURL", "https://user1:1234@selenoid.autotests.cloud/");
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-
     @BeforeAll
     static void beforeAll() {
         Configuration.holdBrowserOpen = false;
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
+        Configuration.browser = System.getProperty("browser","chrome");
+        Configuration.browserVersion = System.getProperty("browserVer","100.0");
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = selenideUrl+"wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
