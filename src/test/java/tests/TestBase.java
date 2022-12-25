@@ -15,9 +15,12 @@ public class TestBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     @BeforeAll
     static void beforeAll() {
+        String browserName = System.getProperty("browser","chrome");
+        String browserVersion = System.getProperty("browserVer","100.0");
+
         Configuration.holdBrowserOpen = false;
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
-        Configuration.browser = System.getProperty("browser","chrome");
+        Configuration.browser = browserName;
         Configuration.browserVersion = System.getProperty("browserVer","100.0");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.remote = selenideUrl+"wd/hub";
@@ -25,6 +28,8 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
+        capabilities.setBrowserName(browserName);
+        capabilities.setVersion(browserVersion);
         Configuration.browserCapabilities = capabilities;
     }
     @BeforeEach
