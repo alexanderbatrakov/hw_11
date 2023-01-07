@@ -15,7 +15,7 @@ public class PracticeFormPage {
     CheckResult checkResult = new CheckResult();
 
     public PracticeFormPage openPage() {
-        open("/automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
 
