@@ -14,7 +14,7 @@ public class ProjectConfiguration {
 
         if(projectConfig.getIsRemote()) {
             TestBase.selenideUrl = projectConfig.getSelenideUrl();
-            Configuration.remote = projectConfig.getSelenideUrl()+"wd/hub";
+            Configuration.remote = TestBase.selenideUrl+"wd/hub";
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
