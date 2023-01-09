@@ -10,11 +10,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.PracticeFormPage;
 import support.Attach;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+
 public class TestBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @BeforeAll
     static void beforeAll() {
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
         Configuration.holdBrowserOpen = false;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
